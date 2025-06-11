@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.F.G. - Bordeaux Fermeture Gicquaire</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-white text-gray-800;
+            background-color: #F5F5F7;
+        }
+        .bg-marine-blue { background-color: #0F3B5F; }
+        .text-marine-blue { color: #0F3B5F; }
+        .bg-light-blue { background-color: #0F3B5F; }
+        .text-light-blue { color: #6DA0CC; }
+        .text-gray-dark { color: #333; }
+
+        .text-justify-custom {
+            text-align: justify;
+        }
+
+        .nav-link-hover:hover {
+            color: #6DA0CC;
+            background-color: transparent;
+        }
+
+        .section-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 0.75rem;
+        }
+
+        .carousel-container {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 600px;
+            object-fit: contain;
+            border-radius: 0.75rem;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            border-radius: 9999px;
+            z-index: 10;
+            font-size: 1.5rem;
+        }
+        .carousel-button-prev { left: 1rem; }
+        .carousel-button-next { right: 1rem; }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                margin-top: 1rem;
+            }
+            .nav-links a {
+                margin: 0 0.5rem;
+            }
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            .section-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-image-left {
+                order: 0;
+            }
+            .section-text-right {
+                order: 1;
+            }
+        }
+    </style>
+</head>
+<body class="leading-relaxed">
+
+    <!-- Header Section -->
+    <header class="bg-marine-blue text-white py-4 shadow-lg rounded-b-xl">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 items-center px-4 header-content">
+            <!-- Espace vide pour équilibrer le côté gauche sur les grands écrans -->
+            <div class="hidden md:block"></div>
+
+            <!-- Nom de l'entreprise (Centré dans sa colonne de grille) -->
+            <div class="text-center">
+                <h1 class="text-5xl font-extrabold mb-1 tracking-wider">B.F.G.</h1>
+                <p class="text-lg font-light text-light-blue">Bordeaux Fermeture Gicquaire</p>
+            </div>
+
+            <!-- Liens de navigation (Alignés à droite dans leur colonne de grille) -->
+            <nav class="flex justify-center md:justify-end nav-links md:col-start-3">
+                <a href="#contact" class="px-5 py-2 hover:bg-light-blue rounded-full transition duration-300 ease-in-out text-lg nav-link-hover">Contact</a>
+                <a href="#gallery" class="px-5 py-2 hover:bg-light-blue rounded-full transition duration-300 ease-in-out text-lg ml-4 nav-link-hover">Galerie Photo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto my-12 px-4">
+
+        <!-- Hero Section - Atelier Image & Title -->
+        <section class="text-center mb-16 relative">
+            <div class="relative w-full h-96 md:h-[500px] rounded-xl overflow-hidden shadow-2xl">
+                <img src="atelier.jpg" onerror="this.src='https://placehold.co/1200x500/E0E0E0/333333?text=Atelier+BFG'" alt="Atelier B.F.G.">
+                <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4 rounded-xl">
+                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">De la conception à la réalisation, tout se passe ici</h2>
+                    <p class="text-lg md:text-xl text-light-blue font-semibold mb-2">79 ROUTE DE THIBAUD, 33390 CAMPUGNAN</p>
+                    <p class="text-base text-white opacity-90 font-light tracking-wide text-justify-custom">
+                        Menuiserie | Fermeture | Vitrage | Soudure | Dépannage | Serrurerie | Métallerie
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About BFG Section -->
+        <section class="mb-16">
+            <div class="bg-gray-100 p-8 rounded-xl shadow-lg text-gray-dark">
+                <p class="text-lg leading-relaxed text-center text-justify-custom">
+                    Depuis plus de 36 ans, B.F.G. est une entreprise familiale bâtie sur la passion du métal. Fondée par Yves Gicquaire, elle excelle en menuiserie métallique et serrurerie, créant des solutions durables et esthétiques pour tous vos projets. Nous garantissons une qualité et une satisfaction client de haut niveau. En plus de nos projets sur mesure, nous intervenons en dépannage et urgence. Notre réactivité est un atout précieux pour toute intervention rapide et essentielle.
+                </p>
+            </div>
+        </section>
+
+        <!-- Services Presentation Section -->
+        <section class="mb-16">
+            <h2 class="text-4xl font-bold text-center text-marine-blue mb-12">Nos Réalisations sur Mesure</h2>
+
+            <!-- Service 1: Custom Metalwork (Image Left, Text Right) -->
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
+                <div class="md:w-1/2 flex-shrink-0">
+                    <img src="verriere.jpg" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Verriere'" alt="Grande verrière" class="section-image shadow-xl">
+                </div>
+                <div class="md:w-1/2 md:pl-8 text-gray-dark section-text-right">
+                    <p class="text-lg leading-relaxed text-justify-custom">
+                        Chez B.F.G., l'imagination est la seule limite. Nous transformons vos idées en réalité, créant des structures uniques et des éléments architecturaux qui subliment vos espaces. Notre savoir-faire s'étend à des ouvrages variés, toujours conçus pour la durabilité et l'éthique.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Service 2: Closure Solutions (Image Right, Text Left) -->
+            <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
+                <div class="md:w-1/2 flex-shrink-0 section-image-left">
+                    <img src="banque.jpg" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Banque'" alt="Banque" class="section-image shadow-xl">
+                </div>
+                <div class="md:w-1/2 md:pr-8 text-gray-dark">
+                    <p class="text-lg leading-relaxed text-justify-custom">
+                        B.F.G. offre une gamme complète de solutions de fermeture : portes, fenêtres en aluminium ou PVC, portails et rideaux métalliques. Chaque produit est conçu pour garantir sécurité, fonctionnalité et un design adapté à vos exigences.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Service 3: Custom Fabrication (Image Left, Text Right) -->
+            <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
+                <div class="md:w-1/2 flex-shrink-0">
+                    <img src="casquette.jpg" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Casquette+Alu'" alt="Casquette en aluminium" class="section-image shadow-xl">
+                </div>
+                <div class="md:w-1/2 md:pl-8 text-gray-dark section-text-right">
+                    <p class="text-lg leading-relaxed text-justify-custom">
+                        Toutes les réalisations de B.F.G. sont entièrement sur mesure, adaptées à vos besoins spécifiques. Notre expertise en soudure de l'acier, de l'inox et de l'aluminium nous permet de créer des produits alliant robustesse, précision technique et esthétique.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Service 4: Renovation and Reinforcement (Image Right, Text Left) -->
+            <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
+                <div class="md:w-1/2 flex-shrink-0 section-image-left">
+                    <img src="balcon.jpg" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Balcon+Renforce'" alt="Renforcement de balcon" class="section-image shadow-xl">
+                </div>
+                <div class="md:w-1/2 md:pr-8 text-gray-dark">
+                    <p class="text-lg leading-relaxed text-justify-custom">
+                        B.F.G. est experte en rénovation et renforcement de structures métalliques. Que ce soit pour consolider des éléments existants ou reproduire des pièces anciennes, l'entreprise assure la solidité et l'intégrité, en respectant l'original ou en l'adaptant aux normes actuelles.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Service 5: Highly Personalized Projects (Text in Middle, Image Left & Right) -->
+            <div class="flex flex-col items-center justify-center mb-16 bg-gray-50 p-6 rounded-xl shadow-md">
+                <div class="flex flex-col md:flex-row items-center justify-center w-full gap-8">
+                    <div class="md:w-1/3 flex-shrink-0 section-image-left">
+                        <img src="piscine.jpg" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Couvercle+Piscine+1'" alt="Couvercle de piscine creusée" class="section-image shadow-xl">
+                    </div>
+                    <div class="md:w-1/3 text-center text-gray-dark px-4">
+                        <p class="text-lg leading-relaxed mb-4 text-justify-custom">
+                            B.F.G. réalise des projets uniques et complexes, où chaque détail est pensé pour concrétiser votre vision. Sa créativité et son savoir-faire sont mis au service de vos ambitions pour un résultat exceptionnel et sur mesure.
+                        </p>
+                    </div>
+                    <div class="md:w-1/3 flex-shrink-0 section-image-right">
+                        <img src="piscine2.jpg" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Couvercle+Piscine+2'" alt="Couvercle de piscine creusée vue 2" class="section-image shadow-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof and Emergency Services Section -->
+        <section class="mb-16">
+            <div class="bg-light-blue text-white p-8 rounded-xl shadow-lg">
+                <h3 class="text-3xl font-bold text-center mb-6">Ils nous font confiance</h3>
+                <p class="text-lg leading-relaxed text-center text-justify-custom">
+                    Le savoir-faire et la fiabilité de B.F.G. nous ont permis de gagner la confiance de nombreux partenaires majeurs. Parmi eux figurent des institutions reconnues comme la Caisse des Dépôts, la Banque Populaire et JD Deceau. Ces collaborations prestigieuses sont le reflet direct du professionnalisme et de la qualité supérieure que nous apportons à chacune de nos réalisations.
+                </p>
+            </div>
+        </section>
+
+        <!-- Photo Gallery Section -->
+        <section id="gallery" class="mb-16 py-12 bg-gray-50 rounded-xl shadow-inner">
+            <h2 class="text-4xl font-bold text-center text-marine-blue mb-12">Galerie Photos</h2>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Gallery Images -->
+                    <div class="carousel-slide">
+                        <img src="verriere.jpg" onerror="this.src='https://placehold.co/900x500/A0A0A0/FFFFFF?text=Verriere+Grande'" alt="Verrière">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="banque.jpg" onerror="this.src='https://placehold.co/900x500/B0B0B0/FFFFFF?text=Banque'" alt="Banque">
+                    </div>
+                     <div class="carousel-slide">
+                        <img src="IMG_2539.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image 2539">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_2540.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image 2540">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="casquette 2.jpg" onerror="this.src='https://placehold.co/900x500/C0C0C0/333333?text=Casquette+Alu+1'" alt="Casquette Alu 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="casquette2.jpg" onerror="this.src='https://placehold.co/900x500/D0D0D0/FFFFFF?text=Casquette+Alu+2'" alt="Casquette Alu 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="balcon.jpg" onerror="this.src='https://placehold.co/900x500/E0E0E0/FFFFFF?text=Balcon+Renforce'" alt="Balcon Renforcé">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="piscine.jpg" onerror="this.src='https://placehold.co/900x500/F0F0F0/FFFFFF?text=Couvercle+Piscine+1'" alt="Couvercle Piscine 1">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="piscine2.jpg" onerror="this.src='https://placehold.co/900x500/909090/FFFFFF?text=Couvercle+Piscine+2'" alt="Couvercle Piscine 2">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_0057.jpg" onerror="this.src='https://placehold.co/900x500/808080/FFFFFF?text=IMG_0057'" alt="Image 0057">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_0288.jpg" onerror="this.src='https://placehold.co/900x500/707070/FFFFFF?text=IMG_0288'" alt="Image 0288">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_0475.jpg" onerror="this.src='https://placehold.co/900x500/606060/FFFFFF?text=IMG_0475'" alt="Image 0475">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_0547.jpg" onerror="this.src='https://placehold.co/900x500/505050/FFFFFF?text=IMG_0547'" alt="Image 0547">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_0636.jpg" onerror="this.src='https://placehold.co/900x500/404040/FFFFFF?text=IMG_0636'" alt="Image 0636">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_0675.jpg" onerror="this.src='https://placehold.co/900x500/303030/FFFFFF?text=IMG_0675'" alt="Image 0675">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_0900.jpg" onerror="this.src='https://placehold.co/900x500/202020/FFFFFF?text=IMG_0900'" alt="Image 0900">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_1251.jpg" onerror="this.src='https://placehold.co/900x500/101010/FFFFFF?text=IMG_1251'" alt="Image 1251">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_1437.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image 1437">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="IMG_3217.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image 3217">
+                    </div>
+                </div>
+                <button class="carousel-button carousel-button-prev" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                <button class="carousel-button carousel-button-next" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="mb-16 py-12 bg-marine-blue text-white rounded-xl shadow-lg">
+            <h2 class="text-4xl font-bold text-center mb-12">Nous Contacter</h2>
+            <div class="flex flex-col md:flex-row justify-center items-start gap-12 px-4">
+                <!-- Contact Form -->
+                <div class="md:w-1/2 bg-white p-8 rounded-xl shadow-xl text-gray-dark">
+                    <h3 class="text-2xl font-semibold mb-6 text-marine-blue">Envoyez-nous un message</h3>
+                    <form id="contactForm" onsubmit="return sendEmail();">
+                        <div class="mb-5">
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nom & Prénom:</label>
+                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-dark leading-tight focus:outline-none focus:ring-2 focus:ring-light-blue" placeholder="Votre nom complet" required>
+                        </div>
+                        <div class="mb-5">
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Adresse E-mail:</label>
+                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-dark leading-tight focus:outline-none focus:ring-2 focus:ring-light-blue" placeholder="votre.email@example.com" required>
+                        </div>
+                        <div class="mb-5">
+                            <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Numéro de Téléphone:</label>
+                            <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-dark leading-tight focus:outline-none focus:ring-2 focus:ring-light-blue" placeholder="06 12 34 56 78">
+                        </div>
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Votre Message:</label>
+                            <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-dark leading-tight focus:outline-none focus:ring-2 focus:ring-light-blue" placeholder="Décrivez votre projet ou votre demande ici..." required></textarea>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <button type="submit" class="bg-light-blue hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300 ease-in-out shadow-md">
+                                Envoyer le message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Direct Contact Info -->
+                <div class="md:w-1/2 bg-white p-8 rounded-xl shadow-xl text-gray-dark">
+                    <h3 class="text-2xl font-semibold mb-6 text-marine-blue">Informations de Contact Direct</h3>
+                    <p class="text-lg mb-4 flex items-center">
+                        <i class="fas fa-map-marker-alt mr-3 text-light-blue text-xl"></i>
+                        79 ROUTE DE THIBAUD, 33390 CAMPUGNAN
+                    </p>
+                    <p class="text-lg mb-4 flex items-center">
+                        <i class="fas fa-phone mr-3 text-light-blue text-xl"></i>
+                        <a href="tel:+33698060958" class="hover:underline">06 98 06 09 58</a>
+                    </p>
+                    <p class="text-lg flex items-center">
+                        <i class="fas fa-envelope mr-3 text-light-blue text-xl"></i>
+                        <a href="mailto:yvesgicquaire@yahoo.fr" class="hover:underline">yvesgicquaire@yahoo.fr</a>
+                    </p>
+                    <div class="mt-8">
+                        <h4 class="text-xl font-semibold mb-4 text-marine-blue">Retrouvez-nous sur la carte :</h4>
+                        <div class="relative w-full h-64 rounded-lg overflow-hidden shadow-md">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2813.914271891963!2d-0.613398984447477!3d45.10915997909831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a5e0b0e5c9b1%3A0x6b8c8d8b8c8d8b8c!2s79%20Route%20de%20Thibaud%2C%2033390%20Campugnan%2C%20France!5e0!3m2!1sen!2sus!4v1678912345678!5m2!1sen!2sus"
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-marine-blue text-white py-8 text-center rounded-t-xl mt-12 shadow-inner">
+        <p class="text-sm">© <span id="current-year"></span> B.F.G. - Bordeaux Fermeture Gicquaire. Tous droits réservés.</p>
+        <p class="text-sm mt-2">Créé par Yves Gicquaire.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const carouselTrack = document.querySelector('.carousel-track');
+            const slides = Array.from(carouselTrack.children);
+            const nextButton = document.querySelector('.carousel-button-next');
+            const prevButton = document.querySelector('.carousel-button-prev');
+            let slideWidth = slides[0].getBoundingClientRect().width;
+            let currentIndex = 0;
+            let autoScrollInterval;
+            const autoScrollDelay = 3000;
+
+            function updateSlidePosition() {
+                slideWidth = slides[0].getBoundingClientRect().width;
+                carouselTrack.style.transform = 'translateX(' + (-currentIndex * slideWidth) + 'px)';
+            }
+
+            function moveToNextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateSlidePosition();
+            }
+
+            function moveToPrevSlide() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateSlidePosition();
+            }
+
+            function startAutoScroll() {
+                stopAutoScroll();
+                autoScrollInterval = setInterval(moveToNextSlide, autoScrollDelay);
+            }
+
+            function stopAutoScroll() {
+                clearInterval(autoScrollInterval);
+            }
+
+            nextButton.addEventListener('click', function() {
+                stopAutoScroll();
+                moveToNextSlide();
+            });
+
+            prevButton.addEventListener('click', function() {
+                stopAutoScroll();
+                moveToPrevSlide();
+            });
+
+            window.addEventListener('resize', updateSlidePosition);
+
+            updateSlidePosition();
+            startAutoScroll();
+
+            // Set current year in footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        });
+
+        function sendEmail() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !message) {
+                alert('Veuillez remplir tous les champs obligatoires (Nom & Prénom, Email, Message).');
+                return false;
+            }
+
+            const recipientEmail = 'yvesgicquaire@yahoo.fr';
+            
+            const displayPhone = phone || 'non communiqué';
+
+            const subject = encodeURIComponent(`Contact B.F.G. - ${name} - ${displayPhone}`);
+
+            const body = encodeURIComponent(
+                `${message}\n\n` +
+                `--- Informations de contact ---\n` +
+                `Nom et Prénom: ${name}\n` +
+                `Téléphone: ${displayPhone}\n` +
+                `Email: ${email}`
+            );
+
+            window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+            return false;
+        }
+    </script>
+</body>
+</html>
