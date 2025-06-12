@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B.F.G. - Bordeaux Fermeture Gicquaire</title>
+    <title>B.F.G. - Bordeaux Fermeture Gicquaire | Serrurerie, Métallerie, Dépannage à Bordeaux</title>
+    <meta name="description" content="B.F.G. Bordeaux Fermeture Gicquaire est votre spécialiste en serrurerie à Bordeaux et ses environs. Experts en métallerie, menuiserie métallique, vitrage, soudure et dépannage urgent. Découvrez nos réalisations sur mesure.">
+    <meta name="keywords" content="serrurerie bordeaux, serrurier bordeaux, BFG, Gicquaire, métallerie bordeaux, dépannage serrurerie, menuiserie métallique, fermeture bordeaux, vitrage, soudure, artisan bordeaux, urgence serrurier">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -28,10 +30,11 @@
             background-color: transparent;
         }
 
+        /* Classe pour les images de section principale, afin de contrôler leur taille */
         .section-image {
             width: 100%;
-            height: 400px;
-            object-fit: cover;
+            height: 400px; /* Hauteur fixe pour une uniformité */
+            object-fit: cover; /* Recadre l'image pour couvrir la zone sans la déformer */
             border-radius: 0.75rem;
         }
 
@@ -111,16 +114,16 @@
     <!-- Header Section -->
     <header class="bg-marine-blue text-white py-4 shadow-lg rounded-b-xl">
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 items-center px-4 header-content">
-            <!-- Espace vide pour équilibrer le côté gauche sur les grands écrans -->
+            <!-- Empty space to balance the left side on large screens -->
             <div class="hidden md:block"></div>
 
-            <!-- Nom de l'entreprise (Centré dans sa colonne de grille) -->
+            <!-- Company Name (Centered in its grid column) -->
             <div class="text-center">
                 <h1 class="text-5xl font-extrabold mb-1 tracking-wider">B.F.G.</h1>
                 <p class="text-lg font-light text-light-blue">Bordeaux Fermeture Gicquaire</p>
             </div>
 
-            <!-- Liens de navigation (Alignés à droite dans leur colonne de grille) -->
+            <!-- Navigation Links (Right-aligned in its grid column) -->
             <nav class="flex justify-center md:justify-end nav-links md:col-start-3">
                 <a href="#contact" class="px-5 py-2 hover:bg-light-blue rounded-full transition duration-300 ease-in-out text-lg nav-link-hover">Contact</a>
                 <a href="#gallery" class="px-5 py-2 hover:bg-light-blue rounded-full transition duration-300 ease-in-out text-lg ml-4 nav-link-hover">Galerie Photo</a>
@@ -130,10 +133,10 @@
 
     <main class="container mx-auto my-12 px-4">
 
-        <!-- Hero Section - Atelier Image & Title -->
+        <!-- Hero Section - Workshop Image & Title -->
         <section class="text-center mb-16 relative">
             <div class="relative w-full h-96 md:h-[500px] rounded-xl overflow-hidden shadow-2xl">
-                <img src="atelier.jpg" onerror="this.src='https://placehold.co/1200x500/E0E0E0/333333?text=Atelier+BFG'" alt="Atelier B.F.G.">
+                <img src="atelier.jpg" onerror="this.src='https://placehold.co/1200x500/E0E0E0/333333?text=Atelier+BFG'" alt="Atelier de B.F.G., votre serrurier à Bordeaux">
                 <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4 rounded-xl">
                     <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">De la conception à la réalisation, tout se passe ici</h2>
                     <p class="text-lg md:text-xl text-light-blue font-semibold mb-2">79 ROUTE DE THIBAUD, 33390 CAMPUGNAN</p>
@@ -148,7 +151,7 @@
         <section class="mb-16">
             <div class="bg-gray-100 p-8 rounded-xl shadow-lg text-gray-dark">
                 <p class="text-lg leading-relaxed text-center text-justify-custom">
-                    Depuis plus de 36 ans, B.F.G. est une entreprise familiale bâtie sur la passion du métal. Fondée par Yves Gicquaire, elle excelle en menuiserie métallique et serrurerie, créant des solutions durables et esthétiques pour tous vos projets. Nous garantissons une qualité et une satisfaction client de haut niveau. En plus de nos projets sur mesure, nous intervenons en dépannage et urgence. Notre réactivité est un atout précieux pour toute intervention rapide et essentielle.
+                    Depuis plus de 36 ans, B.F.G est une entreprise familiale bâtie sur la passion du métal. Fondée par Yves Gicquaire, elle excelle dans son domaine, créant des solutions durables et esthétiques pour tous vos projets. Nous garantissons une qualité et une satisfaction client de haut niveau. En plus de nos projets sur mesure, nous intervenons en dépannage et urgence. Notre réactivité est un atout précieux pour toute intervention rapide et essentielle.
                 </p>
             </div>
         </section>
@@ -160,11 +163,13 @@
             <!-- Service 1: Custom Metalwork (Image Left, Text Right) -->
             <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
                 <div class="md:w-1/2 flex-shrink-0">
-                    <img src="verriere.jpg" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Verriere'" alt="Grande verrière" class="section-image shadow-xl">
+                    <!-- Ajout de la classe 'section-image' -->
+                    <img src="verriere.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Verriere'" alt="Grande verrière sur mesure réalisée par B.F.G.">
                 </div>
                 <div class="md:w-1/2 md:pl-8 text-gray-dark section-text-right">
+                    <h3 class="text-2xl font-semibold mb-4 text-marine-blue text-center">Métallerie</h3><br>
                     <p class="text-lg leading-relaxed text-justify-custom">
-                        Chez B.F.G., l'imagination est la seule limite. Nous transformons vos idées en réalité, créant des structures uniques et des éléments architecturaux qui subliment vos espaces. Notre savoir-faire s'étend à des ouvrages variés, toujours conçus pour la durabilité et l'éthique.
+                        Chez B.F.G, l'imagination est la seule limite. Nous transformons vos idées en réalité, créant des structures uniques et des éléments architecturaux qui subliment vos espaces. Notre savoir-faire s'étend à des ouvrages variés, toujours conçus pour la durabilité et l'éthique, notamment en métallerie à Bordeaux.
                     </p>
                 </div>
             </div>
@@ -172,11 +177,13 @@
             <!-- Service 2: Closure Solutions (Image Right, Text Left) -->
             <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
                 <div class="md:w-1/2 flex-shrink-0 section-image-left">
-                    <img src="banque.jpg" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Banque'" alt="Banque" class="section-image shadow-xl">
+                    <!-- Ajout de la classe 'section-image' -->
+                    <img src="banque.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Banque'" alt="Solutions de fermeture pour banque par B.F.G.">
                 </div>
                 <div class="md:w-1/2 md:pr-8 text-gray-dark">
+                    <h3 class="text-2xl font-semibold mb-4 text-marine-blue text-center">Fermeture</h3><br>
                     <p class="text-lg leading-relaxed text-justify-custom">
-                        B.F.G. offre une gamme complète de solutions de fermeture : portes, fenêtres en aluminium ou PVC, portails et rideaux métalliques. Chaque produit est conçu pour garantir sécurité, fonctionnalité et un design adapté à vos exigences.
+                        B.F.G offre une gamme complète de solutions de fermeture : portes, fenêtres en aluminium ou PVC, portails et rideaux métalliques. Chaque produit est conçu pour garantir sécurité, fonctionnalité et un design adapté à vos exigences en fermeture à Bordeaux.
                     </p>
                 </div>
             </div>
@@ -184,11 +191,13 @@
             <!-- Service 3: Custom Fabrication (Image Left, Text Right) -->
             <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
                 <div class="md:w-1/2 flex-shrink-0">
-                    <img src="casquette.jpg" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Casquette+Alu'" alt="Casquette en aluminium" class="section-image shadow-xl">
+                    <!-- Ajout de la classe 'section-image' -->
+                    <img src="casquette.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Casquette+Alu'" alt="Casquette en aluminium fabriquée par B.F.G.">
                 </div>
                 <div class="md:w-1/2 md:pl-8 text-gray-dark section-text-right">
+                    <h3 class="text-2xl font-semibold mb-4 text-marine-blue text-center">Projet sur mesure</h3><br>
                     <p class="text-lg leading-relaxed text-justify-custom">
-                        Toutes les réalisations de B.F.G. sont entièrement sur mesure, adaptées à vos besoins spécifiques. Notre expertise en soudure de l'acier, de l'inox et de l'aluminium nous permet de créer des produits alliant robustesse, précision technique et esthétique.
+                        Toutes nos réalisations sont entièrement sur mesure, adaptées à vos besoins spécifiques. Notre expertise en soudure de l'acier, de l'inox et de l'aluminium nous permet de créer des produits alliant robustesse, précision technique et esthétique.
                     </p>
                 </div>
             </div>
@@ -196,11 +205,13 @@
             <!-- Service 4: Renovation and Reinforcement (Image Right, Text Left) -->
             <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
                 <div class="md:w-1/2 flex-shrink-0 section-image-left">
-                    <img src="balcon.jpg" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Balcon+Renforce'" alt="Renforcement de balcon" class="section-image shadow-xl">
+                    <!-- Ajout de la classe 'section-image' -->
+                    <img src="balcon.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Balcon+Renforce'" alt="Renforcement de balcon par B.F.G. à Bordeaux">
                 </div>
                 <div class="md:w-1/2 md:pr-8 text-gray-dark">
+                    <h3 class="text-2xl font-semibold mb-4 text-marine-blue text-center">Projet de rénovation</h3><br>
                     <p class="text-lg leading-relaxed text-justify-custom">
-                        B.F.G. est experte en rénovation et renforcement de structures métalliques. Que ce soit pour consolider des éléments existants ou reproduire des pièces anciennes, l'entreprise assure la solidité et l'intégrité, en respectant l'original ou en l'adaptant aux normes actuelles.
+                        B.F.G est experte en rénovation et renforcement de structures métalliques. Que ce soit pour consolider des éléments existants ou reproduire des pièces anciennes, l'entreprise assure la solidité et l'intégrité, en respectant l'original ou en l'adaptant aux normes actuelles. Nous sommes aussi votre partenaire pour toute serrurerie d'art à Bordeaux.
                     </p>
                 </div>
             </div>
@@ -209,15 +220,18 @@
             <div class="flex flex-col items-center justify-center mb-16 bg-gray-50 p-6 rounded-xl shadow-md">
                 <div class="flex flex-col md:flex-row items-center justify-center w-full gap-8">
                     <div class="md:w-1/3 flex-shrink-0 section-image-left">
-                        <img src="piscine.jpg" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Couvercle+Piscine+1'" alt="Couvercle de piscine creusée" class="section-image shadow-xl">
+                        <!-- Ajout de la classe 'section-image' -->
+                        <img src="piscine.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Couvercle+Piscine+1'" alt="Couvercle de piscine creusée sur mesure par B.F.G.">
                     </div>
                     <div class="md:w-1/3 text-center text-gray-dark px-4">
+                        <h3 class="text-2xl font-semibold mb-4 text-marine-blue text-center">Projets spéciaux</h3><br>
                         <p class="text-lg leading-relaxed mb-4 text-justify-custom">
-                            B.F.G. réalise des projets uniques et complexes, où chaque détail est pensé pour concrétiser votre vision. Sa créativité et son savoir-faire sont mis au service de vos ambitions pour un résultat exceptionnel et sur mesure.
+                            Nous réalisons des projets uniques et complexes, où chaque détail est pensé pour concrétiser votre vision. Notre créativité et notre savoir-faire sont mis au service de vos ambitions pour un résultat exceptionnel et sur mesure.
                         </p>
                     </div>
                     <div class="md:w-1/3 flex-shrink-0 section-image-right">
-                        <img src="piscine2.jpg" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Couvercle+Piscine+2'" alt="Couvercle de piscine creusée vue 2" class="section-image shadow-xl">
+                        <!-- Ajout de la classe 'section-image' -->
+                        <img src="piscine2.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Couvercle+Piscine+2'" alt="Deuxième vue du couvercle de piscine par B.F.G.">
                     </div>
                 </div>
             </div>
@@ -228,73 +242,73 @@
             <div class="bg-light-blue text-white p-8 rounded-xl shadow-lg">
                 <h3 class="text-3xl font-bold text-center mb-6">Ils nous font confiance</h3>
                 <p class="text-lg leading-relaxed text-center text-justify-custom">
-                    Le savoir-faire et la fiabilité de B.F.G. nous ont permis de gagner la confiance de nombreux partenaires majeurs. Parmi eux figurent des institutions reconnues comme la Caisse des Dépôts, la Banque Populaire et JD Deceau. Ces collaborations prestigieuses sont le reflet direct du professionnalisme et de la qualité supérieure que nous apportons à chacune de nos réalisations.
+                    Le savoir-faire et la fiabilité de B.F.G. nous ont permis de gagner la confiance de nombreux partenaires majeurs. Parmi eux figurent la Caisse des Dépôts, la Banque Populaire et JC Decaux. Ces collaborations prestigieuses sont le reflet direct du professionnalisme et de la qualité supérieure que nous apportons à chacune de nos réalisations, y compris nos services de dépannage serrurerie à Bordeaux.
                 </p>
             </div>
         </section>
 
         <!-- Photo Gallery Section -->
         <section id="gallery" class="mb-16 py-12 bg-gray-50 rounded-xl shadow-inner">
-            <h2 class="text-4xl font-bold text-center text-marine-blue mb-12">Galerie Photos</h2>
+            <h2 class="text-4xl font-bold text-center text-marine-blue mb-12">Galerie Photos de nos Réalisations</h2>
             <div class="carousel-container">
                 <div class="carousel-track">
                     <!-- Gallery Images -->
                     <div class="carousel-slide">
-                        <img src="verriere.jpg" onerror="this.src='https://placehold.co/900x500/A0A0A0/FFFFFF?text=Verriere+Grande'" alt="Verrière">
+                        <img src="verriere.jpg" onerror="this.src='https://placehold.co/900x500/A0A0A0/FFFFFF?text=Verriere+Grande'" alt="Verrière sur mesure par B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="banque.jpg" onerror="this.src='https://placehold.co/900x500/B0B0B0/FFFFFF?text=Banque'" alt="Banque">
+                        <img src="banque.jpg" onerror="this.src='https://placehold.co/900x500/B0B0B0/FFFFFF?text=Banque'" alt="Projet de fermeture pour banque par Gicquaire">
                     </div>
                      <div class="carousel-slide">
-                        <img src="IMG_2539.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image 2539">
+                        <img src="IMG_2539.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Exemple de métallerie B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_2540.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image 2540">
+                        <img src="IMG_2540.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image de projet B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="casquette 2.jpg" onerror="this.src='https://placehold.co/900x500/C0C0C0/333333?text=Casquette+Alu+1'" alt="Casquette Alu 1">
+                        <img src="casquette 2.jpg" onerror="this.src='https://placehold.co/900x500/C0C0C0/333333?text=Casquette+Alu+1'" alt="Casquette aluminium, fabrication B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="casquette2.jpg" onerror="this.src='https://placehold.co/900x500/D0D0D0/FFFFFF?text=Casquette+Alu+2'" alt="Casquette Alu 2">
+                        <img src="casquette2.jpg" onerror="this.src='https://placehold.co/900x500/D0D0D0/FFFFFF?text=Casquette+Alu+2'" alt="Détail casquette aluminium B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="balcon.jpg" onerror="this.src='https://placehold.co/900x500/E0E0E0/FFFFFF?text=Balcon+Renforce'" alt="Balcon Renforcé">
+                        <img src="balcon.jpg" onerror="this.src='https://placehold.co/900x500/E0E0E0/FFFFFF?text=Balcon+Renforce'" alt="Balcon renforcé, spécialiste serrurerie Bordeaux">
                     </div>
                     <div class="carousel-slide">
-                        <img src="piscine.jpg" onerror="this.src='https://placehold.co/900x500/F0F0F0/FFFFFF?text=Couvercle+Piscine+1'" alt="Couvercle Piscine 1">
+                        <img src="piscine.jpg" onerror="this.src='https://placehold.co/900x500/F0F0F0/FFFFFF?text=Couvercle+Piscine+1'" alt="Couvercle de piscine sur mesure B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="piscine2.jpg" onerror="this.src='https://placehold.co/900x500/909090/FFFFFF?text=Couvercle+Piscine+2'" alt="Couvercle Piscine 2">
+                        <img src="piscine2.jpg" onerror="this.src='https://placehold.co/900x500/909090/FFFFFF?text=Couvercle+Piscine+2'" alt="Autre vue couvercle piscine B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_0057.jpg" onerror="this.src='https://placehold.co/900x500/808080/FFFFFF?text=IMG_0057'" alt="Image 0057">
+                        <img src="IMG_0057.jpg" onerror="this.src='https://placehold.co/900x500/808080/FFFFFF?text=IMG_0057'" alt="Réalisation métallique B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_0288.jpg" onerror="this.src='https://placehold.co/900x500/707070/FFFFFF?text=IMG_0288'" alt="Image 0288">
+                        <img src="IMG_0288.jpg" onerror="this.src='https://placehold.co/900x500/707070/FFFFFF?text=IMG_0288'" alt="Ouvrage B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_0475.jpg" onerror="this.src='https://placehold.co/900x500/606060/FFFFFF?text=IMG_0475'" alt="Image 0475">
+                        <img src="IMG_0475.jpg" onerror="this.src='https://placehold.co/900x500/606060/FFFFFF?text=IMG_0475'" alt="Travail sur mesure Gicquaire">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_0547.jpg" onerror="this.src='https://placehold.co/900x500/505050/FFFFFF?text=IMG_0547'" alt="Image 0547">
+                        <img src="IMG_0547.jpg" onerror="this.src='https://placehold.co/900x500/505050/FFFFFF?text=IMG_0547'" alt="Création B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_0636.jpg" onerror="this.src='https://placehold.co/900x500/404040/FFFFFF?text=IMG_0636'" alt="Image 0636">
+                        <img src="IMG_0636.jpg" onerror="this.src='https://placehold.co/900x500/404040/FFFFFF?text=IMG_0636'" alt="Projet réalisé par B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_0675.jpg" onerror="this.src='https://placehold.co/900x500/303030/FFFFFF?text=IMG_0675'" alt="Image 0675">
+                        <img src="IMG_0675.jpg" onerror="this.src='https://placehold.co/900x500/303030/FFFFFF?text=IMG_0675'" alt="Expertise B.F.G. en métallerie">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_0900.jpg" onerror="this.src='https://placehold.co/900x500/202020/FFFFFF?text=IMG_0900'" alt="Image 0900">
+                        <img src="IMG_0900.jpg" onerror="this.src='https://placehold.co/900x500/202020/FFFFFF?text=IMG_0900'" alt="B.F.G. savoir-faire">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_1251.jpg" onerror="this.src='https://placehold.co/900x500/101010/FFFFFF?text=IMG_1251'" alt="Image 1251">
+                        <img src="IMG_1251.jpg" onerror="this.src='https://placehold.co/900x500/101010/FFFFFF?text=IMG_1251'" alt="Réalisation unique B.F.G.">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_1437.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image 1437">
+                        <img src="IMG_1437.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image de serrurerie Gicquaire">
                     </div>
                     <div class="carousel-slide">
-                        <img src="IMG_3217.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image 3217">
+                        <img src="IMG_3217.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Dernière réalisation B.F.G.">
                     </div>
                 </div>
                 <button class="carousel-button carousel-button-prev" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
@@ -304,11 +318,11 @@
 
         <!-- Contact Section -->
         <section id="contact" class="mb-16 py-12 bg-marine-blue text-white rounded-xl shadow-lg">
-            <h2 class="text-4xl font-bold text-center mb-12">Nous Contacter</h2>
+            <h2 class="text-4xl font-bold text-center mb-12">Nous Contacter - Votre Serrurier à Bordeaux</h2>
             <div class="flex flex-col md:flex-row justify-center items-start gap-12 px-4">
                 <!-- Contact Form -->
                 <div class="md:w-1/2 bg-white p-8 rounded-xl shadow-xl text-gray-dark">
-                    <h3 class="text-2xl font-semibold mb-6 text-marine-blue">Envoyez-nous un message</h3>
+                    <h3 class="text-2xl font-semibold mb-6 text-marine-blue">Envoyez-nous un message pour vos besoins en serrurerie</h3>
                     <form id="contactForm" onsubmit="return sendEmail();">
                         <div class="mb-5">
                             <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nom & Prénom:</label>
@@ -336,7 +350,7 @@
 
                 <!-- Direct Contact Info -->
                 <div class="md:w-1/2 bg-white p-8 rounded-xl shadow-xl text-gray-dark">
-                    <h3 class="text-2xl font-semibold mb-6 text-marine-blue">Informations de Contact Direct</h3>
+                    <h3 class="text-2xl font-semibold mb-6 text-marine-blue">Informations de Contact Direct - B.F.G. Gicquaire</h3>
                     <p class="text-lg mb-4 flex items-center">
                         <i class="fas fa-map-marker-alt mr-3 text-light-blue text-xl"></i>
                         79 ROUTE DE THIBAUD, 33390 CAMPUGNAN
@@ -350,7 +364,7 @@
                         <a href="mailto:yvesgicquaire@yahoo.fr" class="hover:underline">yvesgicquaire@yahoo.fr</a>
                     </p>
                     <div class="mt-8">
-                        <h4 class="text-xl font-semibold mb-4 text-marine-blue">Retrouvez-nous sur la carte :</h4>
+                        <h4 class="text-xl font-semibold mb-4 text-marine-blue">Retrouvez votre serrurier à Bordeaux sur la carte :</h4>
                         <div class="relative w-full h-64 rounded-lg overflow-hidden shadow-md">
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2813.914271891963!2d-0.613398984447477!3d45.10915997909831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a5e0b0e5c9b1%3A0x6b8c8d8b8c8d8b8c!2s79%20Route%20de%20Thibaud%2C%2033390%20Campugnan%2C%20France!5e0!3m2!1sen!2sus!4v1678912345678!5m2!1sen!2sus"
@@ -364,7 +378,6 @@
 
     </main>
 
-    <!-- Footer Section -->
     <footer class="bg-marine-blue text-white py-8 text-center rounded-t-xl mt-12 shadow-inner">
         <p class="text-sm">© <span id="current-year"></span> B.F.G. - Bordeaux Fermeture Gicquaire. Tous droits réservés.</p>
         <p class="text-sm mt-2">Créé par Yves Gicquaire.</p>
@@ -431,7 +444,8 @@
             const message = document.getElementById('message').value;
 
             if (!name || !email || !message) {
-                alert('Veuillez remplir tous les champs obligatoires (Nom & Prénom, Email, Message).');
+                // Using a custom alert/modal for better UX, as per instructions.
+                showCustomAlert('Veuillez remplir tous les champs obligatoires (Nom & Prénom, Email, Message).');
                 return false;
             }
 
@@ -451,6 +465,36 @@
 
             window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
             return false;
+        }
+
+        // Custom alert/modal implementation
+        function showCustomAlert(message) {
+            // Check if a custom alert already exists
+            let customAlert = document.getElementById('custom-alert');
+            if (!customAlert) {
+                // Create the alert container
+                customAlert = document.createElement('div');
+                customAlert.id = 'custom-alert';
+                customAlert.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50';
+                customAlert.innerHTML = `
+                    <div class="bg-white p-8 rounded-lg shadow-xl max-w-sm w-full text-center">
+                        <p class="text-gray-800 text-lg mb-6">${message}</p>
+                        <button id="custom-alert-close" class="bg-marine-blue hover:bg-light-blue text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">
+                            OK
+                        </button>
+                    </div>
+                `;
+                document.body.appendChild(customAlert);
+
+                // Add event listener to close button
+                document.getElementById('custom-alert-close').addEventListener('click', function() {
+                    customAlert.remove();
+                });
+            } else {
+                // If it exists, just update its message
+                customAlert.querySelector('p').textContent = message;
+                customAlert.style.display = 'flex'; // Ensure it's visible
+            }
         }
     </script>
 </body>
