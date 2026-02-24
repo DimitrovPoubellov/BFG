@@ -1,477 +1,1144 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>B.F.G. - Bordeaux Fermeture Gicquaire | Serrurerie, Métallerie, Dépannage à Bordeaux</title>
-    <meta name="description" content="B.F.G. Bordeaux Fermeture Gicquaire est votre spécialiste en serrurerie à Bordeaux et ses environs. Experts en métallerie, menuiserie métallique, vitrage, soudure et dépannage urgent. Découvrez nos réalisations sur mesure.">
-    <meta name="keywords" content="serrurerie bordeaux, serrurier bordeaux, BFG, Gicquaire, métallerie bordeaux, dépannage serrurerie, menuiserie métallique, fermeture bordeaux, vitrage, soudure, artisan bordeaux, urgence serrurier">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            @apply bg-white text-gray-800;
-            background-color: #F5F5F7;
-        }
-        .bg-marine-blue { background-color: #0F3B5F; }
-        .text-marine-blue { color: #0F3B5F; }
-        .bg-light-blue { background-color: #0F3B5F; }
-        .text-light-blue { color: #6DA0CC; }
-        .text-gray-dark { color: #333; }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B.F.G. — Bordeaux Fermeture Gicquaire</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
 
-        .text-justify-custom {
-            text-align: justify;
-        }
+/* ─────────────────────────────────────────
+   BASE
+───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-        .nav-link-hover:hover {
-            color: #6DA0CC;
-            background-color: transparent;
-        }
+:root {
+  --black:  #090909;
+  --dark:   #101213;
+  --card:   #161819;
+  --border: #242628;
+  --gold:   #1a4a7a;
+  --goldhi: #2563a8;
+  --white:  #f0ede8;
+  --muted:  #7a7672;
+  --serif:  'Playfair Display', Georgia, serif;
+  --sans:   'Outfit', sans-serif;
+}
 
-        /* Classe pour les images de section principale, afin de contrôler leur taille */
-        .section-image {
-            width: 100%;
-            height: 400px; /* Hauteur fixe pour une uniformité */
-            object-fit: cover; /* Recadre l'image pour couvrir la zone sans la déformer */
-            border-radius: 0.75rem;
-        }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
 
-        .carousel-container {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 0.75rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .carousel-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-        .carousel-slide {
-            min-width: 100%;
-            box-sizing: border-box;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-        }
-        .carousel-slide img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover; /* Changed from 'contain' to 'cover' for better mobile display */
-            border-radius: 0.75rem;
-        }
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 0.75rem 1rem;
-            cursor: pointer;
-            border-radius: 9999px;
-            z-index: 10;
-            font-size: 1.5rem;
-        }
-        .carousel-button-prev { left: 1rem; }
-        .carousel-button-next { right: 1rem; }
+/* ─────────────────────────────────────────
+   NAVIGATION
+   Un seul niveau. Logo gauche, liens droite.
+───────────────────────────────────────── */
+.nav {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 200;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4rem;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background .3s, border-color .3s;
+}
+.nav.is-scrolled {
+  background: rgba(9,9,9,.97);
+  border-bottom-color: var(--border);
+}
 
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            .nav-links {
-                margin-top: 1rem;
-            }
-            .nav-links a {
-                margin: 0 0.5rem;
-            }
-            .hero-section h1 {
-                font-size: 2.5rem;
-            }
-            .hero-section p {
-                font-size: 1rem;
-            }
-            .section-grid {
-                grid-template-columns: 1fr;
-            }
-            .section-image-left {
-                order: 0;
-            }
-            .section-text-right {
-                order: 1;
-            }
-        }
-    </style>
+/* Logo */
+.nav__logo {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.nav__logo-main {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  color: var(--gold);
+  line-height: 1;
+}
+.nav__logo-sub {
+  font-size: .48rem;
+  font-weight: 400;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Liens desktop */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+  flex-shrink: 0;
+}
+.nav__links a {
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  opacity: .6;
+  white-space: nowrap;
+  transition: opacity .2s, color .2s;
+}
+.nav__links a:hover { opacity: 1; color: var(--gold); }
+.nav__links .cta {
+  background: var(--gold);
+  color: var(--black);
+  opacity: 1;
+  padding: .55rem 1.3rem;
+  font-weight: 600;
+  transition: background .2s;
+}
+.nav__links .cta:hover { background: var(--goldhi); color: var(--black); }
+
+/* Burger (mobile uniquement) */
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  flex-shrink: 0;
+}
+.nav__burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--white);
+  transition: transform .3s, opacity .3s;
+}
+.nav__burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav__burger.open span:nth-child(2) { opacity: 0; }
+.nav__burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Menu mobile */
+.nav__mobile {
+  display: none;
+  position: fixed;
+  top: 68px;
+  left: 0; right: 0;
+  z-index: 199;
+  background: rgba(9,9,9,.98);
+  border-bottom: 1px solid var(--border);
+  flex-direction: column;
+}
+.nav__mobile.open { display: flex; }
+.nav__mobile a {
+  display: block;
+  padding: 1rem 1.5rem;
+  font-size: .85rem;
+  font-weight: 500;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  opacity: .7;
+  border-bottom: 1px solid var(--border);
+  transition: opacity .2s, color .2s;
+}
+.nav__mobile a:hover { opacity: 1; color: var(--gold); }
+.nav__mobile .m-cta {
+  background: var(--gold);
+  color: var(--black);
+  opacity: 1;
+  font-weight: 600;
+}
+
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 50%, rgba(200,151,58,.07) 0%, transparent 65%),
+    linear-gradient(180deg, #141210 0%, #090909 100%);
+}
+.hero__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200,151,58,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200,151,58,.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+}
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 68px 60px 60px;
+  border: 1px solid rgba(200,151,58,.06);
+  pointer-events: none;
+}
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 820px;
+  padding: 0 2rem;
+}
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: .4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp .9s .2s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero__eyebrow::before,
+.hero__eyebrow::after {
+  content: '';
+  display: block;
+  width: 32px; height: 1px;
+  background: var(--gold);
+  opacity: .6;
+}
+
+.hero__title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 6.5vw, 5.6rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 1.6rem;
+  opacity: 0;
+  animation: fadeUp .9s .4s cubic-bezier(.22,1,.36,1) forwards;
+}
+.hero__title em { font-style: italic; color: var(--gold); }
+
+.hero__sub {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0 auto 2.8rem;
+  opacity: 0;
+  animation: fadeUp .9s .6s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeUp .9s .8s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  background: var(--gold);
+  color: var(--black);
+  text-decoration: none;
+  padding: 1rem 2.2rem;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  transition: background .25s, transform .2s;
+}
+.btn-gold:hover { background: var(--goldhi); transform: translateY(-2px); }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  border: 1px solid rgba(200,151,58,.4);
+  color: var(--white);
+  text-decoration: none;
+  padding: 1rem 2.2rem;
+  font-size: .8rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  transition: border-color .25s, color .25s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+.hero__scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  opacity: 0;
+  animation: fadeUp .9s 1.2s forwards;
+}
+.hero__scroll span {
+  font-size: .6rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero__scroll-line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: pulse 2s infinite;
+}
+
+/* ─────────────────────────────────────────
+   SECTIONS — utilitaires communs
+───────────────────────────────────────── */
+.section { padding: 8rem 4rem; }
+.section--dark { background: var(--dark); border-top: 1px solid var(--border); }
+.section--black { background: var(--black); border-top: 1px solid var(--border); }
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: .8rem;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+}
+.label::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: var(--gold);
+}
+
+.heading {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.1;
+}
+.heading em { font-style: italic; color: var(--gold); }
+
+/* ─────────────────────────────────────────
+   ABOUT
+───────────────────────────────────────── */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 6rem;
+  align-items: start;
+  margin-top: 4rem;
+}
+
+.about__text p {
+  font-size: .98rem;
+  color: rgba(240,237,232,.72);
+  margin-bottom: 1.4rem;
+  line-height: 1.75;
+}
+.about__text p strong { color: var(--white); font-weight: 500; }
+
+.about__img {
+  position: relative;
+}
+.about__img img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(20%) contrast(1.1);
+}
+.about__img::before {
+  content: '';
+  position: absolute;
+  top: -14px; right: -14px; bottom: 14px; left: 14px;
+  border: 1px solid rgba(200,151,58,.2);
+  z-index: -1;
+}
+
+/* Partenaires */
+.partners { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border); }
+.partners__title {
+  font-size: .66rem;
+  font-weight: 600;
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2rem;
+}
+.partners__list {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+.partner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .6rem;
+  width: 110px;
+  opacity: .55;
+  transition: opacity .3s;
+}
+.partner:hover { opacity: 1; }
+.partner img {
+  width: 100%;
+  height: 36px;
+  object-fit: contain;
+  object-position: center bottom;
+  display: block;
+  /* VRAIES COULEURS — aucun filtre */
+}
+.partner span {
+  font-size: .58rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ─────────────────────────────────────────
+   SERVICES
+───────────────────────────────────────── */
+.services__intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+.services__intro-text {
+  max-width: 380px;
+  font-size: .95rem;
+  color: var(--muted);
+  line-height: 1.75;
+  flex-shrink: 0;
+}
+
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.service {
+  overflow: hidden;
+  background: var(--card);
+}
+
+/* Image — pleine opacité, aucun filtre */
+.service__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--card);
+  transition: transform .6s cubic-bezier(.22,1,.36,1);
+}
+.service:hover .service__img { transform: scale(1.04); }
+
+.service__body {
+  padding: 1.5rem 1.8rem 2rem;
+  border-top: 2px solid var(--border);
+  transition: border-color .3s;
+}
+.service:hover .service__body { border-top-color: var(--gold); }
+
+.service__num {
+  font-size: .58rem;
+  font-weight: 600;
+  letter-spacing: .3em;
+  color: var(--gold);
+  opacity: .8;
+  margin-bottom: .4rem;
+}
+.service__title {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: .6rem;
+  color: var(--white);
+}
+.service__desc {
+  font-size: .86rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Backgrounds des cartes service */
+.s1 { background-image: url('IMG_2539.jpg'); }
+.s2 { background-image: url('banque.jpg'); }
+.s3 { background-image: url('IMG_0057.jpg'); }
+.s4 { background-image: url('casquette.jpg'); }
+.s5 { background-image: url('balcon.jpg'); }
+.s6 { background-image: url('piscine.jpg'); }
+
+/* ─────────────────────────────────────────
+   GALERIE
+   Grille 4 colonnes, ratio fixe par cellule.
+   Aucune image étirée : object-fit cover sur
+   un conteneur à aspect-ratio défini.
+───────────────────────────────────────── */
+.gallery__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+.gallery__count {
+  font-size: .72rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+/* Cellule par défaut : carré 1/1 */
+.gi {
+  overflow: hidden;
+  background: var(--card);
+  aspect-ratio: 1 / 1;
+  position: relative;
+}
+/* Cellule large : 2/1 sur 2 colonnes */
+.gi--wide {
+  grid-column: span 2;
+  aspect-ratio: 2 / 1;
+}
+
+.gi img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .6s cubic-bezier(.22,1,.36,1);
+}
+.gi:hover img { transform: scale(1.05); }
+
+.gi__ph {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(200,151,58,.25);
+  font-size: .65rem;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────
+   CONTACT
+───────────────────────────────────────── */
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 6rem;
+  margin-top: 4rem;
+}
+
+.contact__info h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: .5rem;
+  line-height: 1.2;
+}
+.gold-bar { width: 50px; height: 2px; background: var(--gold); margin: 1.5rem 0 2rem; }
+
+.contact__detail {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+.contact__icon {
+  width: 38px; height: 38px;
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .9rem;
+  flex-shrink: 0;
+  color: var(--gold);
+}
+.contact__text { font-size: .88rem; color: var(--muted); }
+.contact__text strong { display: block; color: var(--white); font-weight: 500; margin-bottom: 2px; }
+.contact__text a { color: var(--gold); text-decoration: none; }
+.contact__text a:hover { text-decoration: underline; }
+
+.map {
+  margin-top: 2rem;
+  height: 200px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.map iframe { width: 100%; height: 100%; border: none; display: block; }
+
+/* Formulaire */
+.form__grid { display: grid; grid-template-columns: 1fr 1fr; }
+
+.field {
+  border: 1px solid var(--border);
+  margin: -1px -1px 0 0;
+  position: relative;
+  transition: border-color .2s;
+}
+.field:focus-within { border-color: var(--gold); z-index: 1; }
+
+.field label {
+  position: absolute;
+  top: .9rem; left: 1.2rem;
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  pointer-events: none;
+  transition: color .2s;
+}
+.field:focus-within label { color: var(--gold); }
+
+.field input,
+.field textarea {
+  width: 100%;
+  background: var(--card);
+  border: none;
+  outline: none;
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: .93rem;
+  font-weight: 300;
+  padding: 2.1rem 1.2rem .75rem;
+  display: block;
+  transition: background .2s;
+}
+.field:focus-within input,
+.field:focus-within textarea { background: #181a1c; }
+
+.field--full { grid-column: 1 / -1; }
+.field textarea { resize: none; min-height: 130px; }
+
+.form__submit {
+  grid-column: 1 / -1;
+  margin-top: 1px;
+  border: none;
+  background: var(--gold);
+  color: var(--black);
+  font-family: var(--sans);
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  padding: 1.35rem;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  transition: background .2s;
+}
+.form__submit:hover { background: var(--goldhi); }
+
+.form__note {
+  font-size: .73rem;
+  color: var(--muted);
+  margin-top: 1rem;
+  line-height: 1.6;
+}
+.form__feedback {
+  display: none;
+  padding: .9rem 1.2rem;
+  font-size: .85rem;
+  margin-top: .5rem;
+}
+.form__feedback--ok {
+  display: block;
+  background: rgba(34,197,94,.08);
+  border: 1px solid rgba(34,197,94,.25);
+  color: #86efac;
+}
+.form__feedback--err {
+  display: block;
+  background: rgba(239,68,68,.08);
+  border: 1px solid rgba(239,68,68,.25);
+  color: #fca5a5;
+}
+
+/* ─────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────── */
+.footer {
+  background: var(--dark);
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.footer__brand {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 900;
+  color: var(--gold);
+  letter-spacing: .12em;
+}
+.footer__copy { font-size: .75rem; color: var(--muted); }
+.footer__nav { display: flex; gap: 2rem; }
+.footer__nav a {
+  font-size: .72rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  transition: color .2s;
+}
+.footer__nav a:hover { color: var(--gold); }
+
+/* ─────────────────────────────────────────
+   ANIMATIONS
+───────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: .3; }
+  50%       { opacity: 1; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────── */
+@media (max-width: 900px) {
+  .nav { padding: 0 1.5rem; }
+  .nav__links { display: none; }
+  .nav__burger { display: flex; }
+
+  .section { padding: 5rem 1.5rem; }
+
+  .about__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .about__img { display: none; }
+
+  .services__intro { flex-direction: column; gap: 1.5rem; }
+  .services__intro-text { max-width: 100%; }
+  .services__grid { grid-template-columns: 1fr 1fr; }
+
+  .gallery__grid { grid-template-columns: 1fr 1fr; }
+  .gi { aspect-ratio: 1 / 1; }
+  .gi--wide { grid-column: span 2; aspect-ratio: 2 / 1; }
+
+  .contact__grid { grid-template-columns: 1fr; gap: 3rem; }
+  .form__grid { grid-template-columns: 1fr; }
+
+  .footer { flex-direction: column; text-align: center; }
+  .footer__nav { flex-wrap: wrap; justify-content: center; }
+
+  .partners__list { gap: 2rem; }
+}
+
+@media (max-width: 500px) {
+  .services__grid { grid-template-columns: 1fr; }
+  .hero__actions { flex-direction: column; align-items: stretch; }
+  .btn-gold, .btn-outline { justify-content: center; }
+}
+
+  </style>
 </head>
-<body class="leading-relaxed">
+<body>
 
-    <header class="bg-marine-blue text-white py-4 shadow-lg rounded-b-xl">
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 items-center px-4 header-content">
-            <div class="hidden md:block"></div>
+<!-- ══════════════════════════════════════
+     NAVIGATION
+══════════════════════════════════════ -->
+<nav class="nav" id="navbar">
+  <a href="#hero" class="nav__logo">
+    <span class="nav__logo-main">B.F.G.</span>
+    <span class="nav__logo-sub">Bordeaux Fermeture Gicquaire</span>
+  </a>
 
-            <div class="text-center">
-                <h1 class="text-5xl font-extrabold mb-1 tracking-wider">B.F.G.</h1>
-                <p class="text-lg font-light text-light-blue">Bordeaux Fermeture Gicquaire</p>
-            </div>
+  <ul class="nav__links">
+    <li><a href="#about">Entreprise</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Galerie</a></li>
+    <li><a href="#contact" class="cta">Devis gratuit</a></li>
+  </ul>
 
-            <nav class="flex justify-center md:justify-end nav-links md:col-start-3">
-                <a href="#contact" class="px-5 py-2 hover:bg-light-blue rounded-full transition duration-300 ease-in-out text-lg nav-link-hover">Contact</a>
-                <a href="#gallery" class="px-5 py-2 hover:bg-light-blue rounded-full transition duration-300 ease-in-out text-lg ml-4 nav-link-hover">Galerie Photo</a>
-            </nav>
+  <button class="nav__burger" id="burger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav__mobile" id="mobileMenu">
+  <a href="#about">Entreprise</a>
+  <a href="#services">Services</a>
+  <a href="#gallery">Galerie</a>
+  <a href="#contact" class="m-cta">Devis gratuit</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">Serrurerie · Métallerie · Dépannage</p>
+    <h1 class="hero__title">L'art du métal,<br><em>façonné à la main.</em></h1>
+    <p class="hero__sub">Entreprise familiale depuis 1988. B.F.G. conçoit et réalise des ouvrages métalliques sur mesure pour particuliers et professionnels de la région bordelaise.</p>
+    <div class="hero__actions">
+      <a href="#gallery" class="btn-gold">Voir nos réalisations →</a>
+      <a href="#contact" class="btn-outline">Demander un devis</a>
+    </div>
+  </div>
+  <div class="hero__scroll">
+    <div class="hero__scroll-line"></div>
+    <span>Découvrir</span>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ABOUT
+══════════════════════════════════════ -->
+<section id="about" class="section section--dark">
+  <div class="reveal">
+    <p class="label">L'Entreprise</p>
+    <h2 class="heading">Une passion du métal,<br><em>transmise depuis 1988</em></h2>
+  </div>
+
+  <div class="about__grid">
+    <div class="about__text reveal">
+      <p><strong>B.F.G. — Bordeaux Fermeture Gicquaire</strong> est une entreprise familiale fondée par Yves Gicquaire, bâtie sur une passion profonde du métal et du travail bien fait. Depuis plus de 36 ans, nous intervenons sur tous types de projets, des plus simples aux plus ambitieux.</p>
+      <p>Notre atelier, situé à <strong>Campugnan en Gironde</strong>, est le cœur de notre activité. C'est ici que naissent toutes nos créations : conçues, façonnées et finies à la main — menuiserie, fermeture, vitrage, soudure, serrurerie et métallerie.</p>
+      <p>En plus de nos projets sur mesure, nous assurons des <strong>interventions de dépannage et d'urgence</strong> avec une réactivité maximale. Parce que certaines situations n'attendent pas.</p>
+
+      <div class="partners reveal">
+        <p class="partners__title">Ils nous font confiance</p>
+        <div class="partners__list">
+          <div class="partner">
+            <img src="logocaissedesdepots.png" alt="Caisse des Dépôts">
+            <span>Caisse des Dépôts</span>
+          </div>
+          <div class="partner">
+            <img src="logobanquepopulaire.png" alt="Banque Populaire">
+            <span>Banque Populaire</span>
+          </div>
+          <div class="partner">
+            <img src="logojcdecaux.png" alt="JCDecaux">
+            <span>JCDecaux</span>
+          </div>
         </div>
-    </header>
+      </div>
+    </div>
 
-    <main class="container mx-auto my-12 px-4">
+    <div class="about__img reveal">
+      <img src="atelier.jpg" alt="Atelier B.F.G." onerror="this.parentElement.style.display='none'">
+    </div>
+  </div>
+</section>
 
-        <section class="text-center mb-16 relative">
-            <div class="relative w-full h-96 md:h-[500px] rounded-xl overflow-hidden shadow-2xl">
-                <img src="atelier.jpg" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/1200x500/E0E0E0/333333?text=Atelier+BFG'" alt="Atelier de B.F.G., votre serrurier à Bordeaux">
-                <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-4 rounded-xl">
-                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4 leading-tight">De la conception à la réalisation, tout se passe ici</h2>
-                    <p class="text-lg md:text-xl text-light-blue font-semibold mb-2">79 ROUTE DE THIBAUD, 33390 CAMPUGNAN</p>
-                    <p class="text-base text-white opacity-90 font-light tracking-wide text-justify-custom">
-                        Menuiserie | Fermeture | Vitrage | Soudure | Dépannage | Serrurerie | Métallerie
-                    </p>
-                </div>
-            </div>
-        </section>
+<!-- ══════════════════════════════════════
+     SERVICES
+══════════════════════════════════════ -->
+<section id="services" class="section section--black">
+  <div class="services__intro reveal">
+    <div>
+      <p class="label">Notre Savoir-faire</p>
+      <h2 class="heading">Des solutions pour<br><em>chaque projet</em></h2>
+    </div>
+    <p class="services__intro-text">Chaque réalisation est pensée, conçue et fabriquée dans notre atelier. Soudure acier, inox, aluminium — toujours sur mesure, toujours avec exigence.</p>
+  </div>
 
-        <section class="mb-16">
-            <div class="bg-gray-100 p-8 rounded-xl shadow-lg text-gray-dark">
-                <p class="text-lg leading-relaxed text-center text-justify-custom">
-                    Depuis plus de 36 ans, B.F.G est une entreprise familiale bâtie sur la passion du métal. Fondée par Yves Gicquaire, elle excelle dans son domaine, créant des solutions durables et esthétiques pour tous vos projets. Nous garantissons une qualité et une satisfaction client de haut niveau. En plus de nos projets sur mesure, nous intervenons en dépannage et urgence. Notre réactivité est un atout précieux pour toute intervention rapide et essentielle.
-                </p>
-            </div>
-        </section>
+  <div class="services__grid">
+    <div class="service reveal">
+      <div class="service__img s1"></div>
+      <div class="service__body">
+        <p class="service__num">01</p>
+        <h3 class="service__title">Métallerie</h3>
+        <p class="service__desc">Structures uniques, garde-corps, éléments architecturaux — nous transformons vos idées en réalisations durables et esthétiques.</p>
+      </div>
+    </div>
+    <div class="service reveal">
+      <div class="service__img s2"></div>
+      <div class="service__body">
+        <p class="service__num">02</p>
+        <h3 class="service__title">Fermeture</h3>
+        <p class="service__desc">Portes et fenêtres alu ou PVC, portails, rideaux métalliques. Sécurité maximale et design adapté à votre architecture.</p>
+      </div>
+    </div>
+    <div class="service reveal">
+      <div class="service__img s3"></div>
+      <div class="service__body">
+        <p class="service__num">03</p>
+        <h3 class="service__title">Serrurerie & Dépannage</h3>
+        <p class="service__desc">Intervention rapide, 7j/7. Notre réactivité est un atout précieux pour toute urgence ou installation planifiée.</p>
+      </div>
+    </div>
+    <div class="service reveal">
+      <div class="service__img s4"></div>
+      <div class="service__body">
+        <p class="service__num">04</p>
+        <h3 class="service__title">Projets Sur Mesure</h3>
+        <p class="service__desc">Toutes nos réalisations sont entièrement adaptées à vos besoins. Robustesse, précision et esthétique, sans compromis.</p>
+      </div>
+    </div>
+    <div class="service reveal">
+      <div class="service__img s5"></div>
+      <div class="service__body">
+        <p class="service__num">05</p>
+        <h3 class="service__title">Rénovation</h3>
+        <p class="service__desc">Consolidation de structures existantes, reproduction de pièces anciennes, mise aux normes — dans le respect de l'original.</p>
+      </div>
+    </div>
+    <div class="service reveal">
+      <div class="service__img s6"></div>
+      <div class="service__body">
+        <p class="service__num">06</p>
+        <h3 class="service__title">Projets Spéciaux</h3>
+        <p class="service__desc">Verrières, couvercles de piscine, casquettes aluminium — chaque défi est une opportunité de créer quelque chose d'unique.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <section class="mb-16">
-            <h2 class="text-4xl font-bold text-center text-marine-blue mb-12">Nos Réalisations sur Mesure</h2>
+<!-- ══════════════════════════════════════
+     GALERIE
+══════════════════════════════════════ -->
+<section id="gallery" class="section section--dark">
+  <div class="gallery__header reveal">
+    <div>
+      <p class="label">Nos Réalisations</p>
+      <h2 class="heading">Le métal,<br><em>à l'état d'art</em></h2>
+    </div>
+    <p class="gallery__count">Quelques réalisations</p>
+  </div>
 
-            <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
-                <div class="md:w-1/2 flex-shrink-0">
-                    <img src="verriere.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Verriere'" alt="Grande verrière sur mesure réalisée par B.F.G.">
-                </div>
-                <div class="md:w-1/2 md:pl-8 text-gray-dark section-text-right">
-                    <h3 class="text-2xl font-semibold mb-4 text-marine-blue text-center">Métallerie</h3><br>
-                    <p class="text-lg leading-relaxed text-justify-custom">
-                        Chez B.F.G, l'imagination est la seule limite. Nous transformons vos idées en réalité, créant des structures uniques et des éléments architecturaux qui subliment vos espaces. Notre savoir-faire s'étend à des ouvrages variés, toujours conçus pour la durabilité et l'éthique, notamment en métallerie à Bordeaux.
-                    </p>
-                </div>
-            </div>
+  <div class="gallery__grid">
+    <div class="gi gi--wide reveal"><img src="verriere.jpg"   alt="Verrière"      onerror="this.parentElement.innerHTML='<div class=\'gi__ph\'>Verrière</div>'"></div>
+    <div class="gi reveal">         <img src="IMG_2539.jpg"  alt="Métallerie"     onerror="this.parentElement.innerHTML='<div class=\'gi__ph\'>Métallerie</div>'"></div>
+    <div class="gi reveal">         <img src="casquette.jpg" alt="Casquette alu"  onerror="this.parentElement.innerHTML='<div class=\'gi__ph\'>Casquette</div>'"></div>
 
-            <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
-                <div class="md:w-1/2 flex-shrink-0 section-image-left">
-                    <img src="banque.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Banque'" alt="Solutions de fermeture pour banque par B.F.G.">
-                </div>
-                <div class="md:w-1/2 md:pr-8 text-gray-dark">
-                    <h3 class="text-2xl font-semibold mb-4 text-marine-blue text-center">Fermeture</h3><br>
-                    <p class="text-lg leading-relaxed text-justify-custom">
-                        B.F.G offre une gamme complète de solutions de fermeture : portes, fenêtres en aluminium ou PVC, portails et rideaux métalliques. Chaque produit est conçu pour garantir sécurité, fonctionnalité et un design adapté à vos exigences en fermeture à Bordeaux.
-                    </p>
-                </div>
-            </div>
+    <div class="gi reveal">         <img src="banque.jpg"    alt="Fermeture"      onerror="this.parentElement.innerHTML='<div class=\'gi__ph\'>Fermeture</div>'"></div>
+    <div class="gi gi--wide reveal"><img src="balcon.jpg"    alt="Balcon"         onerror="this.parentElement.innerHTML='<div class=\'gi__ph\'>Balcon</div>'"></div>
+    <div class="gi reveal">         <img src="IMG_2540.jpg"  alt="Réalisation"    onerror="this.parentElement.innerHTML='<div class=\'gi__ph\'>Réalisation</div>'"></div>
 
-            <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
-                <div class="md:w-1/2 flex-shrink-0">
-                    <img src="casquette.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Casquette+Alu'" alt="Casquette en aluminium fabriquée par B.F.G.">
-                </div>
-                <div class="md:w-1/2 md:pl-8 text-gray-dark section-text-right">
-                    <h3 class="text-2xl font-semibold mb-4 text-marine-blue text-center">Projet sur mesure</h3><br>
-                    <p class="text-lg leading-relaxed text-justify-custom">
-                        Toutes nos réalisations sont entièrement sur mesure, adaptées à vos besoins spécifiques. Notre expertise en soudure de l'acier, de l'inox et de l'aluminium nous permet de créer des produits alliant robustesse, précision technique et esthétique.
-                    </p>
-                </div>
-            </div>
+    <div class="gi reveal">         <img src="piscine.jpg"   alt="Piscine"        onerror="this.parentElement.innerHTML='<div class=\'gi__ph\'>Piscine</div>'"></div>
+    <div class="gi gi--wide reveal"><img src="IMG_0475.jpg"  alt="Sur mesure"     onerror="this.parentElement.innerHTML='<div class=\'gi__ph\'>Sur mesure</div>'"></div>
+    <div class="gi reveal">         <img src="piscine2.jpg"  alt="Projet spécial" onerror="this.parentElement.innerHTML='<div class=\'gi__ph\'>Projet</div>'"></div>
+  </div>
+</section>
 
-            <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-16 gap-8 bg-gray-50 p-6 rounded-xl shadow-md">
-                <div class="md:w-1/2 flex-shrink-0 section-image-left">
-                    <img src="balcon.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Balcon+Renforce'" alt="Renforcement de balcon par B.F.G. à Bordeaux">
-                </div>
-                <div class="md:w-1/2 md:pr-8 text-gray-dark">
-                    <h3 class="text-2xl font-semibold mb-4 text-marine-blue text-center">Projet de rénovation</h3><br>
-                    <p class="text-lg leading-relaxed text-justify-custom">
-                        B.F.G est experte en rénovation et renforcement de structures métalliques. Que ce soit pour consolider des éléments existants ou reproduire des pièces anciennes, l'entreprise assure la solidité et l'intégrité, en respectant l'original ou en l'adaptant aux normes actuelles. Nous sommes aussi votre partenaire pour toute serrurerie d'art à Bordeaux.
-                    </p>
-                </div>
-            </div>
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section id="contact" class="section section--black">
+  <div class="reveal">
+    <p class="label">Contact</p>
+    <h2 class="heading">Parlons de<br><em>votre projet</em></h2>
+  </div>
 
-            <div class="flex flex-col items-center justify-center mb-16 bg-gray-50 p-6 rounded-xl shadow-md">
-                <div class="flex flex-col md:flex-row items-center justify-center w-full gap-8">
-                    <div class="md:w-1/3 flex-shrink-0 section-image-left">
-                        <img src="piscine.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/D0D0D0/333333?text=Couvercle+Piscine+1'" alt="Couvercle de piscine creusée sur mesure par B.F.G.">
-                    </div>
-                    <div class="md:w-1/3 text-center text-gray-dark px-4">
-                        <h3 class="text-2xl font-semibold mb-4 text-marine-blue text-center">Projets spéciaux</h3><br>
-                        <p class="text-lg leading-relaxed mb-4 text-justify-custom">
-                            Nous réalisons des projets uniques et complexes, où chaque détail est pensé pour concrétiser votre vision. Notre créativité et notre savoir-faire sont mis au service de vos ambitions pour un résultat exceptionnel et sur mesure.
-                        </p>
-                    </div>
-                    <div class="md:w-1/3 flex-shrink-0 section-image-right">
-                        <img src="piscine2.jpg" class="section-image" onerror="this.src='https://placehold.co/600x400/C0C0C0/333333?text=Couvercle+Piscine+2'" alt="Deuxième vue du couvercle de piscine par B.F.G.">
-                    </div>
-                </div>
-            </div>
-        </section>
+  <div class="contact__grid">
+    <div class="reveal">
+      <h3 class="contact__info h3">Votre serrurier<br>à Bordeaux</h3>
+      <div class="gold-bar"></div>
 
-        <section class="mb-16">
-            <div class="bg-light-blue text-white p-8 rounded-xl shadow-lg">
-                <h3 class="text-3xl font-bold text-center mb-6">Ils nous font confiance</h3>
-                <p class="text-lg leading-relaxed text-center text-justify-custom">
-                    Le savoir-faire et la fiabilité de B.F.G. nous ont permis de gagner la confiance de nombreux partenaires majeurs. Parmi eux figurent la Caisse des Dépôts, la Banque Populaire et JC Decaux. Ces collaborations prestigieuses sont le reflet direct du professionnalisme et de la qualité supérieure que nous apportons à chacune de nos réalisations, y compris nos services de dépannage serrurerie à Bordeaux.
-                </p>
-            </div>
-        </section>
+      <div class="contact__detail">
+        <div class="contact__icon">📍</div>
+        <div class="contact__text">
+          <strong>Adresse</strong>
+          79 Route de Thibaud, 33390 Campugnan
+        </div>
+      </div>
+      <div class="contact__detail">
+        <div class="contact__icon">☎</div>
+        <div class="contact__text">
+          <strong>Téléphone</strong>
+          <a href="tel:+33698060958">06 98 06 09 58</a>
+        </div>
+      </div>
+      <div class="contact__detail">
+        <div class="contact__icon">✉</div>
+        <div class="contact__text">
+          <strong>Email</strong>
+          <a href="mailto:yvesgicquaire@yahoo.fr">yvesgicquaire@yahoo.fr</a>
+        </div>
+      </div>
 
-        <section id="gallery" class="mb-16 py-12 bg-gray-50 rounded-xl shadow-inner">
-            <h2 class="text-4xl font-bold text-center text-marine-blue mb-12">Galerie Photos de nos Réalisations</h2>
-            <div class="carousel-container">
-                <div class="carousel-track">
-                    <div class="carousel-slide">
-                        <img src="verriere.jpg" onerror="this.src='https://placehold.co/900x500/A0A0A0/FFFFFF?text=Verriere+Grande'" alt="Verrière sur mesure par B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="banque.jpg" onerror="this.src='https://placehold.co/900x500/B0B0B0/FFFFFF?text=Banque'" alt="Projet de fermeture pour banque par Gicquaire">
-                    </div>
-                     <div class="carousel-slide">
-                        <img src="IMG_2539.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Exemple de métallerie B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_2540.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image de projet B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="casquette 2.jpg" onerror="this.src='https://placehold.co/900x500/C0C0C0/333333?text=Casquette+Alu+1'" alt="Casquette aluminium, fabrication B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="casquette2.jpg" onerror="this.src='https://placehold.co/900x500/D0D0D0/FFFFFF?text=Casquette+Alu+2'" alt="Détail casquette aluminium B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="balcon.jpg" onerror="this.src='https://placehold.co/900x500/E0E0E0/FFFFFF?text=Balcon+Renforce'" alt="Balcon renforcé, spécialiste serrurerie Bordeaux">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="piscine.jpg" onerror="this.src='https://placehold.co/900x500/F0F0F0/FFFFFF?text=Couvercle+Piscine+1'" alt="Couvercle de piscine sur mesure B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="piscine2.jpg" onerror="this.src='https://placehold.co/900x500/909090/FFFFFF?text=Couvercle+Piscine+2'" alt="Autre vue couvercle piscine B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_0057.jpg" onerror="this.src='https://placehold.co/900x500/808080/FFFFFF?text=IMG_0057'" alt="Réalisation métallique B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_0288.jpg" onerror="this.src='https://placehold.co/900x500/707070/FFFFFF?text=IMG_0288'" alt="Ouvrage B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_0475.jpg" onerror="this.src='https://placehold.co/900x500/606060/FFFFFF?text=IMG_0475'" alt="Travail sur mesure Gicquaire">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_0547.jpg" onerror="this.src='https://placehold.co/900x500/505050/FFFFFF?text=IMG_0547'" alt="Création B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_0636.jpg" onerror="this.src='https://placehold.co/900x500/404040/FFFFFF?text=IMG_0636'" alt="Projet réalisé par B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_0675.jpg" onerror="this.src='https://placehold.co/900x500/303030/FFFFFF?text=IMG_0675'" alt="Expertise B.F.G. en métallerie">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_0900.jpg" onerror="this.src='https://placehold.co/900x500/202020/FFFFFF?text=IMG_0900'" alt="B.F.G. savoir-faire">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_1251.jpg" onerror="this.src='https://placehold.co/900x500/101010/FFFFFF?text=IMG_1251'" alt="Réalisation unique B.F.G.">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_1437.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Image de serrurerie Gicquaire">
-                    </div>
-                    <div class="carousel-slide">
-                        <img src="IMG_3217.jpg" onerror="this.src='https://placehold.co/900x500/000000/FFFFFF?text=IMG_1437'" alt="Dernière réalisation B.F.G.">
-                    </div>
-                </div>
-                <button class="carousel-button carousel-button-prev" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
-                <button class="carousel-button carousel-button-next" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </section>
+      <div class="map">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2821.5!2d-0.5514!3d45.178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s79+Route+de+Thibaud%2C+33390+Campugnan!5e0!3m2!1sfr!2sfr!4v1"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="B.F.G. Campugnan"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
 
-        <section id="contact" class="mb-16 py-12 bg-marine-blue text-white rounded-xl shadow-lg">
-            <h2 class="text-4xl font-bold text-center mb-12">Nous Contacter - Votre Serrurier à Bordeaux</h2>
-            <div class="flex flex-col md:flex-row justify-center items-start gap-12 px-4">
-                <div class="md:w-1/2 bg-white p-8 rounded-xl shadow-xl text-gray-dark">
-                    <h3 class="text-2xl font-semibold mb-6 text-marine-blue">Envoyez-nous un message pour vos besoins en serrurerie</h3>
-                    <form id="contactForm" onsubmit="return sendEmail();">
-                        <div class="mb-5">
-                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Nom & Prénom:</label>
-                            <input type="text" id="name" name="name" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-dark leading-tight focus:outline-none focus:ring-2 focus:ring-light-blue" placeholder="Votre nom complet" required>
-                        </div>
-                        <div class="mb-5">
-                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">Adresse E-mail:</label>
-                            <input type="email" id="email" name="email" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-dark leading-tight focus:outline-none focus:ring-2 focus:ring-light-blue" placeholder="votre.email@example.com" required>
-                        </div>
-                        <div class="mb-5">
-                            <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">Numéro de Téléphone:</label>
-                            <input type="tel" id="phone" name="phone" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-dark leading-tight focus:outline-none focus:ring-2 focus:ring-light-blue" placeholder="06 12 34 56 78">
-                        </div>
-                        <div class="mb-6">
-                            <label for="message" class="block text-gray-700 text-sm font-bold mb-2">Votre Message:</label>
-                            <textarea id="message" name="message" rows="6" class="shadow appearance-none border rounded-lg w-full py-3 px-4 text-gray-dark leading-tight focus:outline-none focus:ring-2 focus:ring-light-blue" placeholder="Décrivez votre projet ou votre demande ici..." required></textarea>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <button type="submit" class="bg-light-blue hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-full focus:outline-none focus:shadow-outline transition duration-300 ease-in-out shadow-md">
-                                Envoyer le message
-                            </button>
-                        </div>
-                    </form>
-                </div>
+    <div class="reveal">
+      <form id="contactForm">
+        <div class="form__grid">
+          <div class="field">
+            <label for="nom">Nom & Prénom *</label>
+            <input type="text" id="nom" name="nom" required>
+          </div>
+          <div class="field">
+            <label for="email">Adresse e-mail *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel">
+          </div>
+          <div class="field">
+            <label for="sujet">Sujet</label>
+            <input type="text" id="sujet" name="sujet">
+          </div>
+          <div class="field field--full">
+            <label for="message">Votre message *</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="form__submit">Envoyer le message →</button>
+        </div>
+        <div class="form__feedback" id="formFb"></div>
+        <p class="form__note">* Champs obligatoires. Le formulaire ouvrira votre client de messagerie avec le message pré-rempli.</p>
+      </form>
+    </div>
+  </div>
+</section>
 
-                <div class="md:w-1/2 bg-white p-8 rounded-xl shadow-xl text-gray-dark">
-                    <h3 class="text-2xl font-semibold mb-6 text-marine-blue">Informations de Contact Direct - B.F.G. Gicquaire</h3>
-                    <p class="text-lg mb-4 flex items-center">
-                        <i class="fas fa-map-marker-alt mr-3 text-light-blue text-xl"></i>
-                        79 ROUTE DE THIBAUD, 33390 CAMPUGNAN
-                    </p>
-                    <p class="text-lg mb-4 flex items-center">
-                        <i class="fas fa-phone mr-3 text-light-blue text-xl"></i>
-                        <a href="tel:+33698060958" class="hover:underline">06 98 06 09 58</a>
-                    </p>
-                    <p class="text-lg flex items-center">
-                        <i class="fas fa-envelope mr-3 text-light-blue text-xl"></i>
-                        <a href="mailto:yvesgicquaire@yahoo.fr" class="hover:underline">yvesgicquaire@yahoo.fr</a>
-                    </p>
-                    <div class="mt-8">
-                        <h4 class="text-xl font-semibold mb-4 text-marine-blue">Retrouvez votre serrurier à Bordeaux sur la carte :</h4>
-                        <div class="relative w-full h-64 rounded-lg overflow-hidden shadow-md">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2813.914271891963!2d-0.613398984447477!3d45.10915997909831!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd54a5e0b0e5c9b1%3A0x6b8c8d8b8c8d8b8c!2s79%20Route%20de%20Thibaud%2C%2033390%20Campugnan%2C%20France!5e0!3m2!1sen!2sus!4v1678912345678!5m2!1sen!2sus"
-                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="footer">
+  <span class="footer__brand">B.F.G.</span>
+  <p class="footer__copy">© 2026 Bordeaux Fermeture Gicquaire — 79 Route de Thibaud, 33390 Campugnan</p>
+  <nav class="footer__nav">
+    <a href="#about">Entreprise</a>
+    <a href="#services">Services</a>
+    <a href="#gallery">Galerie</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</footer>
 
-    </main>
+<script>
+/* ── Nav scroll ── */
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 80) {
+    navbar.classList.add('is-scrolled');
+  } else {
+    navbar.classList.remove('is-scrolled');
+  }
+}, { passive: true });
 
-    <footer class="bg-marine-blue text-white py-8 text-center rounded-t-xl mt-12 shadow-inner">
-        <p class="text-sm">© <span id="current-year"></span> B.F.G. - Bordeaux Fermeture Gicquaire. Tous droits réservés.</p>
-        <p class="text-sm mt-2">Créé par Yves Gicquaire.</p>
-    </footer>
+/* ── Burger ── */
+const burger = document.getElementById('burger');
+const mobileMenu = document.getElementById('mobileMenu');
+burger.addEventListener('click', function() {
+  burger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(function(a) {
+  a.addEventListener('click', function() {
+    burger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const carouselTrack = document.querySelector('.carousel-track');
-            const slides = Array.from(carouselTrack.children);
-            const nextButton = document.querySelector('.carousel-button-next');
-            const prevButton = document.querySelector('.carousel-button-prev');
-            let slideWidth = slides[0].getBoundingClientRect().width;
-            let currentIndex = 0;
-            let autoScrollInterval;
-            const autoScrollDelay = 3000;
+/* ── Reveal au scroll ── */
+var reveals = document.querySelectorAll('.reveal');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-            function updateSlidePosition() {
-                slideWidth = slides[0].getBoundingClientRect().width;
-                carouselTrack.style.transform = 'translateX(' + (-currentIndex * slideWidth) + 'px)';
-            }
+reveals.forEach(function(el, i) {
+  var siblings = Array.from(el.parentElement.children).filter(function(c) {
+    return c.classList.contains('reveal');
+  });
+  el.style.transitionDelay = (siblings.indexOf(el) * 0.07) + 's';
+  observer.observe(el);
+});
 
-            function moveToNextSlide() {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateSlidePosition();
-            }
+/* ── Formulaire → mailto ── */
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var nom     = document.getElementById('nom').value.trim();
+  var email   = document.getElementById('email').value.trim();
+  var tel     = document.getElementById('tel').value.trim();
+  var sujet   = document.getElementById('sujet').value.trim();
+  var message = document.getElementById('message').value.trim();
+  var fb      = document.getElementById('formFb');
 
-            function moveToPrevSlide() {
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                updateSlidePosition();
-            }
+  if (!nom || !email || !message) {
+    fb.className = 'form__feedback form__feedback--err';
+    fb.textContent = 'Merci de remplir les champs obligatoires (nom, email, message).';
+    return;
+  }
 
-            function startAutoScroll() {
-                stopAutoScroll();
-                autoScrollInterval = setInterval(moveToNextSlide, autoScrollDelay);
-            }
+  var body = encodeURIComponent('Nom : ' + nom + '\nEmail : ' + email + '\nTéléphone : ' + (tel || 'Non renseigné') + '\n\nMessage :\n' + message);
+  var sub  = encodeURIComponent('Contact site B.F.G.' + (sujet ? ' — ' + sujet : ''));
+  window.location.href = 'mailto:yvesgicquaire@yahoo.fr?subject=' + sub + '&body=' + body;
 
-            function stopAutoScroll() {
-                clearInterval(autoScrollInterval);
-            }
-
-            nextButton.addEventListener('click', function() {
-                stopAutoScroll();
-                moveToNextSlide();
-            });
-
-            prevButton.addEventListener('click', function() {
-                stopAutoScroll();
-                moveToPrevSlide();
-            });
-
-            window.addEventListener('resize', updateSlidePosition);
-
-            updateSlidePosition();
-            startAutoScroll();
-
-            // Set current year in footer
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-        });
-
-        function sendEmail() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-
-            if (!name || !email || !message) {
-                // Using a custom alert/modal for better UX, as per instructions.
-                showCustomAlert('Veuillez remplir tous les champs obligatoires (Nom & Prénom, Email, Message).');
-                return false;
-            }
-
-            const recipientEmail = 'yvesgicquaire@yahoo.fr';
-            
-            const displayPhone = phone || 'non communiqué';
-
-            const subject = encodeURIComponent(`Contact B.F.G. - ${name} - ${displayPhone}`);
-
-            const body = encodeURIComponent(
-                `${message}\n\n` +
-                `--- Informations de contact ---\n` +
-                `Nom et Prénom: ${name}\n` +
-                `Téléphone: ${displayPhone}\n` +
-                `Email: ${email}`
-            );
-
-            window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
-            return false;
-        }
-
-        // Custom alert/modal implementation
-        function showCustomAlert(message) {
-            // Check if a custom alert already exists
-            let customAlert = document.getElementById('custom-alert');
-            if (!customAlert) {
-                // Create the alert container
-                customAlert = document.createElement('div');
-                customAlert.id = 'custom-alert';
-                customAlert.className = 'fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50';
-                customAlert.innerHTML = `
-                    <div class="bg-white p-8 rounded-lg shadow-xl max-w-sm w-full text-center">
-                        <p class="text-gray-800 text-lg mb-6">${message}</p>
-                        <button id="custom-alert-close" class="bg-marine-blue hover:bg-light-blue text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">
-                            OK
-                        </button>
-                    </div>
-                `;
-                document.body.appendChild(customAlert);
-
-                // Add event listener to close button
-                document.getElementById('custom-alert-close').addEventListener('click', function() {
-                    customAlert.remove();
-                });
-            } else {
-                // If it exists, just update its message
-                customAlert.querySelector('p').textContent = message;
-                customAlert.style.display = 'flex'; // Ensure it's visible
-            }
-        }
-    </script>
+  fb.className = 'form__feedback form__feedback--ok';
+  fb.textContent = "✓ Votre client de messagerie va s'ouvrir. Nous vous répondrons rapidement !";
+  this.reset();
+});
+</script>
 </body>
 </html>
